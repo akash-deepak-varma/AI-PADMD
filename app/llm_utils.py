@@ -117,7 +117,7 @@ def run_pipeline_with_llm(raw_texts, raw_tokens):
 
         messages_final = [{"role": "user", "content": [{"type": "text", "text": prompt_final}]}]
         raw_resp_final = ollama_model(messages_final)
-        print(raw_resp_final)
+        #print(raw_resp_final)
         resp_text_final = getattr(raw_resp_final, "content", str(raw_resp_final))
         start, end = resp_text_final.find("{"), resp_text_final.rfind("}") + 1
         step3 = json.loads(resp_text_final[start:end])
