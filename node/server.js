@@ -11,10 +11,7 @@ import fs from "fs";
 import FormData from "form-data";
 
 dotenv.config();
-console.log("DB_HOST:", process.env.DB_HOST);
-console.log("DB_USER:", process.env.DB_USER);
-console.log("DB_PASS:", process.env.DB_PASS ? "*****" : "undefined");
-console.log("DB_NAME:", process.env.DB_NAME);
+
 
 
 
@@ -31,16 +28,13 @@ const db = await mysql.createPool({
 
 // ---------------- Helpers ----------------
 function authMiddleware(req, res, next) {
-    console.log("Token length:", req.headers["authorization"]?.length);
-    console.log("Token starts with:", req.headers["authorization"]?.slice(0, 20));
-    console.log("Token ends with:", req.headers["authorization"]?.slice(-20));
 
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) return res.status(401).json({ error: "Unauthorized" });
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log("Decoded JWT:", decoded);  // should now show { id: 1, username: 'akash' }
+        //console.log("Decoded JWT:", decoded);  // should now show { id: 1, username: 'akash' }
         req.user = decoded;
         next();
     } catch (err) {
