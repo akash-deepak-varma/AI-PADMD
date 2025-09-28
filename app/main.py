@@ -69,6 +69,16 @@ async def process_image_stepwise(file: UploadFile = File(...)):
         "confidence": conf
     }
 
+    if conf < 0.6:
+        print("Confidence is too low to proceed")
+        return 
+    return {
+        "pipeline": [
+            ocr_output,
+        ],
+        "problem":"confidence is too low cant proceed futher"
+    }
+
 
 
     llm_pipeline_result = run_pipeline_with_llm(raw_tokens, raw_tokens)
