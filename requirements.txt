@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+easyocr
+pydantic-settings
+numpy
+pyt
+openai
+huggingface_hub
+smolagents

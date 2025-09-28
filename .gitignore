@@ -1,0 +1,193 @@
+# ==================================
+# Root Level - General Files
+# ==================================
+
+# Environment variables
+.env
+.env.*
+!.env.example
+.envrc
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# General temporary files
+*.tmp
+*.temp
+.cache/
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Security files
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+
+# ==================================
+# Node Directory - Express/Node.js
+# ==================================
+
+# Node.js Dependencies
+node/node_modules/
+node/jspm_packages/
+node/bower_components/
+
+# Node.js Logs
+node/logs/
+node/*.log
+node/npm-debug.log*
+node/yarn-debug.log*
+node/yarn-error.log*
+node/lerna-debug.log*
+
+# Node.js Runtime data
+node/pids/
+node/*.pid
+node/*.seed
+node/*.pid.lock
+
+# Node.js Coverage
+node/coverage/
+node/*.lcov
+node/.nyc_output
+
+# Node.js Build outputs
+node/dist/
+node/build/
+node/.next/
+node/out/
+node/.nuxt/
+node/.cache/
+node/.parcel-cache/
+node/uploads
+
+# TypeScript
+node/*.tsbuildinfo
+
+# Package manager caches
+node/.npm
+node/.yarn-integrity
+node/.pnp.*
+node/.yarn/
+
+# Optional caches
+node/.eslintcache
+node/.stylelintcache
+
+# ==================================
+# App Directory - Python Files
+# ==================================
+
+# Python bytecode
+app/__pycache__/
+app/**/__pycache__/
+app/*.py[cod]
+app/**/*.py[cod]
+app/*$py.class
+app/**/*$py.class
+
+# Python C extensions
+app/*.so
+app/**/*.so
+
+# Python packaging
+app/build/
+app/develop-eggs/
+app/dist/
+app/downloads/
+app/eggs/
+app/.eggs/
+app/lib/
+app/lib64/
+app/parts/
+app/sdist/
+app/var/
+app/wheels/
+app/*.egg-info/
+app/.installed.cfg
+app/*.egg
+app/MANIFEST
+
+# Python virtual environments
+app/venv/
+app/env/
+app/.venv/
+app/.env/
+app/ENV/
+app/env.bak/
+app/venv.bak/
+app/.pixi/
+
+# Python testing
+app/.tox/
+app/.nox/
+app/.coverage
+app/.coverage.*
+app/.cache
+app/.pytest_cache/
+app/htmlcov/
+app/cover/
+
+# Python frameworks
+app/db.sqlite3
+app/db.sqlite3-journal
+app/local_settings.py
+app/instance/
+app/.webassets-cache
+
+# Jupyter Notebook
+app/.ipynb_checkpoints/
+app/**/.ipynb_checkpoints/
+
+# Python documentation
+app/docs/_build/
+app/site/
+
+# Python type checking
+app/.mypy_cache/
+app/.dmypy.json
+app/dmypy.json
+app/.pyre/
+app/.pytype/
+
+# Ruff cache
+app/.ruff_cache/
+
+# ==================================
+# Directory-Specific Alternatives
+# ==================================
+
+# If you prefer broader patterns (use instead of above)
+# This approach ignores all files of these types anywhere in the project:
+
+# Python patterns anywhere
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/venv/
+**/env/
+**/.venv/
+
+# Node patterns anywhere  
+**/node_modules/
+**/dist/
+**/build/
+**/*.log
