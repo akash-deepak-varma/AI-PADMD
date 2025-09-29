@@ -45,6 +45,63 @@ function authMiddleware(req, res, next) {
 
 // ---------------- Auth APIs ----------------
 
+app.get('/', async (req, res) => {
+  res.status(200).send(`
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;">
+      <h1>Welcome to the AI-Powered Medical OCR System API</h1>
+      <p>This is the main information endpoint for the intelligent document processing pipeline. The system extracts and categorizes financial amounts from medical documents using OCR and AI.</p>
+      
+      <h2 style="border-bottom: 2px solid #eee; padding-bottom: 5px; margin-top: 40px;">How to Use the API</h2>
+      <p>Follow the steps below to authenticate and start processing documents.</p>
+
+      <h3>Step 1: Create an Account</h3>
+      <div style="background-color: #f4f4f4; border-left: 5px solid #007BFF; padding: 10px 20px; margin: 20px 0; border-radius: 5px;">
+        <p><strong>Endpoint:</strong> <code>POST /signup</code></p>
+        <p><strong>Description:</strong> Create a new user account.</p>
+        <p><strong>Body (JSON):</strong></p>
+        <pre style="background-color: #e9e9e9; padding: 10px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word;">
+{
+  "username": "your_username",
+  "password": "your_password"
+}</pre>
+      </div>
+
+      <h3>Step 2: Log In to Get an Authentication Token</h3>
+      <div style="background-color: #f4f4f4; border-left: 5px solid #28a745; padding: 10px 20px; margin: 20px 0; border-radius: 5px;">
+        <p><strong>Endpoint:</strong> <code>POST /login</code></p>
+        <p><strong>Description:</strong> Authenticate your credentials to receive a JWT token.</p>
+        <p><strong>Body (JSON):</strong></p>
+        <pre style="background-color: #e9e9e9; padding: 10px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word;">
+{
+  "username": "your_username",
+  "password": "your_password"
+}</pre>
+        <p><strong>Important:</strong> The API will return a token in the response. You must include this token in the <code>Authorization</code> header for all protected requests in the next steps.</p>
+        <p><strong>Header Format:</strong> <code>Authorization: Bearer &lt;YOUR_JWT_TOKEN&gt;</code></p>
+      </div>
+
+      <h3>Step 3: Process a Medical Document</h3>
+      <div style="background-color: #f4f4f4; border-left: 5px solid #ffc107; padding: 10px 20px; margin: 20px 0; border-radius: 5px;">
+        <p><strong>Endpoint:</strong> <code>POST /process_image_stepwise</code></p>
+        <p><strong>Authentication:</strong> <strong style="color: #dc3545;">Required (Bearer Token)</strong></p>
+        <p><strong>Description:</strong> Upload a medical document (image) for OCR and AI analysis.</p>
+        <p><strong>Body (multipart/form-data):</strong></p>
+        <ul>
+          <li><strong>Key:</strong> <code>file</code></li>
+          <li><strong>Value:</strong> [Select your image file to upload]</li>
+        </ul>
+      </div>
+      
+      <h3>Step 4: Retrieve Your Processing History</h3>
+      <div style="background-color: #f4f4f4; border-left: 5px solid #17a2b8; padding: 10px 20px; margin: 20px 0; border-radius: 5px;">
+        <p><strong>Endpoint:</strong> <code>GET /results</code></p>
+        <p><strong>Authentication:</strong> <strong style="color: #dc3545;">Required (Bearer Token)</strong></p>
+        <p><strong>Description:</strong> Fetches all previous processing results associated with your account.</p>
+      </div>
+    </div>
+  `);
+});
+
 // Signup
 app.post("/signup", async (req, res) => {
   const { username, password } = req.body;
